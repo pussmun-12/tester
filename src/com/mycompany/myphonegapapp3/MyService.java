@@ -1,4 +1,4 @@
-package com.yournamespace.yourappname;
+package com.mycompany.myphonegapapp3;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
