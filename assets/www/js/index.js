@@ -34,7 +34,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        	var myService = cordova.require('cordova/plugin/myService');
+        	myService = cordova.require('cordova/plugin/myService');
         	getStatus();
     },
     // Update DOM on a Received Event
