@@ -58,9 +58,9 @@
             </intent-filter>
         </activity>
 	<!-- To be added within Application nde -->
-<service android:name="com.mycompany.myphonegapapp3.MyService">
+<service android:name="com.yournamespace.yourappname.MyService">
     <intent-filter>         
-        <action android:name="com.mycompany.myphonegapapp3.MyService"/> 
+        <action android:name="com.yournamespace.yourappname.MyService"/> 
     </intent-filter>     
 </service>
 
