@@ -25,10 +25,11 @@
 		<script type="text/javascript" src="myService-2.9.0.js"></script>
 		
         <script type="text/javascript" >
-        	var myService = cordova.require('cordova/plugin/myService');
+        	
         	
         	document.addEventListener('deviceready', function() {
-				getStatus();
+        		var myService = cordova.require('cordova/plugin/myService');
+		        getStatus();
   			}, true);
 
  			function handleSuccess(data) {
