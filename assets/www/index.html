@@ -34,7 +34,7 @@
  				console.log("Här kommer data: ");
  				if(data.LatestResult != null && data.LatestResult.Message){
  					//console.log(data.LatestResult.Message);
- 					alert(data.LatestResult.Message);
+ 					
  					checkForItemsOnBlocket();
  				}
  				updateView(data);
@@ -63,10 +63,18 @@
 			                var strippedHTML = data.substring(index, indexOfBodyEnd);
 			                console.log(strippedHTML);
 			                $('#container').html(strippedHTML);
-			                var items = $(".hit_list").find(".item_link");
-			                for(var i= 0; i<items.length;i++){
-			                     alert($(items[i]).html());
-			                }
+			                            var items = $(".hit_list").find(".item_link");
+				            for(var i= 0; i<items.length;i++){
+				                alert($(items[i]).find(".item_date"));
+				                var itemDate =  $(items[i]).find(".item_date");
+				                //kolla om idag, om så jämför tiden med den som finns i localStorage, om nån finns. om ej finns eller om över alerta
+				                if(!localStorage.blocketDate || itemDate > localStorage.blocketDate){
+				                    navigator.notification.vibrate(15000);
+				                    localStorage.put('blocketDate', itemDate);
+				                    i = items.length;
+				
+				                }
+				            }
 						                
 			            }
 			        });
