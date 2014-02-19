@@ -65,7 +65,7 @@
 			                $('#container').html(strippedHTML);
 			                    var items = $(".hit_list").find(".item_link");
 				            for(var i= 0; i<items.length;i++){
-				                alert($(items[i]).find(".item_date"));
+				                
 				                var itemDate =  $(items[i]).find(".item_date").html();
 				                if(itemDate.indexOf("Idag") > -1)
 				                //kolla om idag, om så jämför tiden med den som finns i localStorage, om nån finns. om ej finns eller om över alerta
@@ -100,7 +100,7 @@
 			}
 
  			function enableTimer() {
-				myService.enableTimer(	60000,
+				myService.enableTimer(	180000,
 										function(r){handleSuccess(r)},
 										function(e){handleError(e)});
  			}
