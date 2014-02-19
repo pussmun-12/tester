@@ -31,7 +31,9 @@
 
  			function handleSuccess(data) {
  				console.log("Här kommer data: ");
- 				console.log(data);
+ 				if(data.LatestResult != null && data.LatestResult.message){
+ 					console.log(data.LatestResult.message);
+ 				}
  				updateView(data);
  			}
  			
