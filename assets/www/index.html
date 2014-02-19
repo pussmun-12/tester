@@ -63,8 +63,11 @@
 			                var strippedHTML = data.substring(index, indexOfBodyEnd);
 			                console.log(strippedHTML);
 			                $('#container').html(strippedHTML);
-			                
-			                
+			                var items =  $('#container').find(".history item_link");
+			                for(var i= 0; i<items.length;i++){
+			                     alert(items[i].html());
+			                }
+						                
 			            }
 			        });
  			}
