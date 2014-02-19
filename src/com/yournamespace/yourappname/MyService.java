@@ -25,7 +25,7 @@ public class MyService extends BackgroundService {
 			String now = df.format(new Date(System.currentTimeMillis())); 
 
 			String msg = "Hello " + this.mHelloTo + " - its currently " + now;
-			result.put("Message", msg);
+			result.put("Message", "DO WORK");
 
 			Log.d(TAG, msg);
 		} catch (JSONException e) {
