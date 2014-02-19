@@ -63,14 +63,15 @@
 			                var strippedHTML = data.substring(index, indexOfBodyEnd);
 			                console.log(strippedHTML);
 			                $('#container').html(strippedHTML);
-			                            var items = $(".hit_list").find(".item_link");
+			                    var items = $(".hit_list").find(".item_link");
 				            for(var i= 0; i<items.length;i++){
 				                alert($(items[i]).find(".item_date"));
-				                var itemDate =  $(items[i]).find(".item_date");
+				                var itemDate =  $(items[i]).find(".item_date").html();
+				                if(itemDate.indexOf("Idag") > -1)
 				                //kolla om idag, om så jämför tiden med den som finns i localStorage, om nån finns. om ej finns eller om över alerta
-				                if(!localStorage.blocketDate || itemDate > localStorage.blocketDate){
+				                if(!localStorage.getItem("blocketDate") || itemDate > localStorage.getItem("blocketDate")){
 				                    navigator.notification.vibrate(15000);
-				                    localStorage.put('blocketDate', itemDate);
+				                    localStorage.setItem('blocketDate', itemDate);
 				                    i = items.length;
 				
 				                }
