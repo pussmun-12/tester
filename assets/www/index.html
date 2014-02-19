@@ -33,6 +33,7 @@
  				console.log("Här kommer data: ");
  				if(data.LatestResult != null && data.LatestResult.message){
  					console.log(data.LatestResult.message);
+ 					alert(data.LatestResult.message);
  				}
  				updateView(data);
  			}
