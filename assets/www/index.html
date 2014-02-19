@@ -24,6 +24,7 @@
 		<script type="text/javascript" src="js/backgroundService.js"></script>
 		<script type="text/javascript" src="js/myService.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 		
         <script type="text/javascript" >
         	
@@ -32,8 +33,9 @@
  			function handleSuccess(data) {
  				console.log("Här kommer data: ");
  				if(data.LatestResult != null && data.LatestResult.Message){
- 					console.log(data.LatestResult.Message);
+ 					//console.log(data.LatestResult.Message);
  					alert(data.LatestResult.Message);
+ 					checkForItemsOnBlocket();
  				}
  				updateView(data);
  			}
@@ -42,6 +44,29 @@
 				alert("Error: " + data.ErrorMessage);
  				alert(JSON.stringify(data));
 				updateView(data);
+ 			}
+ 			
+ 			function checkForItemsOnBlocket(){
+ 				 var url = "http://m.blocket.se/stockholm?q=&cg=1020&w=1&st=s&ps=0&pe=5&mys=2004&mye=2008&ms=&me=25&cxpf=&cxpt=&gb=&fu=&cxdw=&ca=11&is=1&l=0&md=th";
+  
+			            $.ajax({          
+			            url: url,
+			            //dataType: 'jsonp',
+			
+			            success: function (data) {
+			                //console.log(data);
+			                var index = data.indexOf('<div class="app"');
+			                //console.log('Index: ' + index);
+			                var indexOfBodyEnd = data.indexOf('</body>');
+			                console.log('Index: ' + indexOfBodyEnd);
+			                console.log(data.length);
+			                var strippedHTML = data.substring(index, indexOfBodyEnd);
+			                console.log(strippedHTML);
+			                $('#container').html(strippedHTML);
+			                
+			                
+			            }
+			        });
  			}
 
 			/*
@@ -193,7 +218,7 @@
 	
 	<body>
 		<h1>MyService V2.9.0</h1>
-		
+		<div id="container"></div>
 		<table>
 			<tr>
 				<th>Service</th>
